@@ -6,7 +6,7 @@ const main = async () => {
     console.log("Contract deployed to: ", domainContract.address);
     console.log("Contract deployed by: ", owner.address);
 
-    let txn = await domainContract.register("r2d2", { value: hre.ethers.utils.parseEther('0.1') });
+    let txn = await domainContract.register("r2d2", { value: hre.ethers.utils.parseEther('0.5') });
     // Matic variable
     await txn.wait();
 

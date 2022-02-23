@@ -39,7 +39,7 @@ contract Domains is ERC721URIStorage {
         uint256 len = StringUtils.strlen(name);
         require(len > 0);
         if (len == 3) {
-            return 5 * 10**17; // 0.5 matic
+            return 5 * 10**17;
         } else if (len == 4) {
             return 3 * 10**17;
         } else {
@@ -49,23 +49,23 @@ contract Domains is ERC721URIStorage {
 
     // Register function that adds names to mapping
     function register(string calldata name) public payable {
-        // Check that the domain name is unregistered
         require(domains[name] == address(0));
+
         uint256 _price = price(name);
-        // Check if enough Matic was paid in the transaction
         require(msg.value >= _price, "Not enough Matic paid");
 
-        // Combine the name passed into the function with the TLD
+        // Combine the name passed into the function  with the TLD
         string memory _name = string(abi.encodePacked(name, ".", tld));
+        // Create the SVG (image) for the NFT with the name
         string memory finalSvg = string(
-            abi.encodePacked(svgPartOne, _name, svgPartTwo) // Combine the svg code with the domain
-        ); // Create the SVG for the NFT with the name, combining two strings in sol
+            abi.encodePacked(svgPartOne, _name, svgPartTwo)
+        );
         uint256 newRecordId = _tokenIds.current();
         uint256 length = StringUtils.strlen(name);
         string memory strLen = Strings.toString(length);
 
         console.log(
-            "Registering %s.%s on the contract with tokenId %d",
+            "Registering %s.%s on the contract with tokenID %d",
             name,
             tld,
             newRecordId
