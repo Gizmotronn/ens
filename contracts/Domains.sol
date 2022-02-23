@@ -56,8 +56,9 @@ contract Domains is ERC721URIStorage {
         require(msg.value >= _price, "Not enough Matic paid");
 
         // Combine the name passed into the function with the TLD
-        string memory _name = string(
-            abi.encodePacked(svgPartOne, _name, svgPartTwo)
+        string memory _name = string(abi.encodePacked(name, ".", tld));
+        string memory finalSvg = string(
+            abi.encodePacked(svgPartOne, _name, svgPartTwo) // Combine the svg code with the domain
         ); // Create the SVG for the NFT with the name, combining two strings in sol
         uint256 newRecordId = _tokenIds.current();
         uint256 length = StringUtils.strlen(name);
