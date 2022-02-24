@@ -1,6 +1,7 @@
-# Basic Sample Hardhat Project
+# Ethereum Name Service on Polygon
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+[For use with signal-k/polygon](https://github.com/signal-k/polygon)
+
 
 Try running some of the following tasks:
 
@@ -13,3 +14,5 @@ npx hardhat node
 node scripts/sample-script.js
 npx hardhat help
 ```
+
+`deploy.js` is a script to deploy to the Mumbai (Polygon-eth) testnet, while `run.js` is used to deploy to a local Hardhat server/blockchain

@@ -1,6 +1,6 @@
 const main = async () => {
     const [owner, randomPerson] = await hre.ethers.getSigners();
-    const domainContractFactory = await hre.ethers.getContractFactory("Domains"); // rrobo is tld
+    const domainContractFactory = await hre.ethers.getContractFactory("Domains"); // robo is tld
     const domainContract = await domainContractFactory.deploy('robo');
     await domainContract.deployed();
     console.log("Contract deployed to: ", domainContract.address);
